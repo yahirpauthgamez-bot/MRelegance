@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MR ELEGANCE - Catálogo Editorial Completo</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+        :root {
+            --bg-dark: #0A0A0A;
+            --bg-card: #141414;
+            --accent-gold: #E2872A;
+            --text-gold: #F3A648;
+            --text-light: #F4F4F5;
+            --text-muted: #9CA3AF;
+            --border-dark: #27272A;
+            --bg-light-page: #F9F9FB;
+            --text-dark-page: #18181B;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #121212;
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* --- ANIMACIÓN SLIDE UP --- */
+        @keyframes slideUpFade {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-slide-up {
+            animation: slideUpFade 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .animate-logo-slide {
+            animation: slideUpFade 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+            opacity: 0;
+        }
+
+        /* --- SPREAD SIMULATION --- */
+        .spread-title {
+            text-align: center;
+            color: var(--accent-gold);
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            letter-spacing: 4px;
+            margin: 40px 0 15px;
+            text-transform: uppercase;
+        }
+
+        .spread-container {
+            display: flex;
+            background-color: #000;
+            border: 1px solid var(--border-dark);
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+            margin-bottom: 50px;
+            min-height: 520px;
+        }
+
+        .page-left {
+            flex: 1;
+            padding: 40px;
+            background-color: #0D0D0D;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-right: 1px solid #1E1E22;
+        }
+
+        .page-right {
+            flex: 1.3;
+            padding: 35px;
+            background-color: var(--bg-light-page);
+            color: var(--text-dark-page);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* --- COVER DESIGN --- */
+        .cover-page {
+            width: 100%;
+            max-width: 550px;
+            margin: 0 auto 50px;
+            background: linear-gradient(180deg, #0A0A0C 0%, #16161A 100%);
+            border: 1px solid var(--accent-gold);
+            border-radius: 8px;
+            padding: 50px 30px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+        }
+
+        .brand-logo-m {
+            font-family: 'Cinzel', serif;
+            font-size: 72px;
+            font-weight: 700;
+            color: var(--accent-gold);
+            line-height: 1;
+        }
+
+        .brand-name {
+            font-family: 'Cinzel', serif;
+            font-size: 24px;
+            letter-spacing: 7px;
+            color: var(--accent-gold);
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+
+        .catalog-cover-title {
+            font-family: 'Cinzel', serif;
+            font-size: 18px;
+            letter-spacing: 4px;
+            color: var(--text-light);
+            margin: 40px 0 10px;
+            text-transform: uppercase;
+        }
+
+        .catalog-cover-subtitle {
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .cover-hero-image-placeholder {
+            width: 100%;
+            height: 260px;
+            margin: 30px 0;
+            border: 1px dashed var(--accent-gold);
+            background: radial-gradient(circle, #202025 0%, #0D0D0E 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+        }
+
+        /* --- SPREADS & EDITORIAL --- */
+        .editorial-header {
+            font-family: 'Cinzel', serif;
+            font-size: 22px;
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .editorial-text {
+            font-size: 12px;
+            line-height: 1.8;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .lifestyle-image-placeholder {
+            width: 100%;
+            height: 240px;
+            background: linear-gradient(135deg, #23232A 0%, #111114 100%);
+            border: 1px dashed var(--text-muted);
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 11px;
+            text-align: center;
+            padding: 15px;
+        }
+
+        /* GRID PRODUCTOS */
+        .grid-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .grid-header-title {
+            font-family: 'Cinzel', serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: #111;
+            letter-spacing: 1px;
+        }
+
+        .grid-products-6 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .product-item {
+            background-color: #FFF;
+            border: 1px solid #E4E4E7;
+            border-radius: 6px;
+            padding: 10px 6px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .product-item:hover {
+            border-color: var(--accent-gold);
+            box-shadow: 0 6px 16px rgba(226, 135, 42, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .product-img-box {
+            width: 100%;
+            height: 80px;
+            background-color: #F4F4F5;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 6px;
+            border: 1px dashed #D4D4D8;
+            overflow: hidden;
+        }
+
+        .product-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .product-item-name {
+            font-size: 10px;
+            font-weight: 600;
+            color: #18181B;
+            margin-bottom: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .product-item-ref {
+            font-size: 9px;
+            color: #71717A;
+            margin-bottom: 4px;
+        }
+
+        .click-badge {
+            font-size: 7px;
+            background-color: #18181B;
+            color: var(--accent-gold);
+            padding: 2px 4px;
+            border-radius: 3px;
+            margin-top: 2px;
+            display: inline-block;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        /* --- MODAL DETALLE 3 ÁNGULOS --- */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.92);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            overflow-y: auto;
+            padding: 30px 15px;
+        }
+
+        .detail-card-container {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #0E0E10;
+            border: 1px solid var(--accent-gold);
+            border-radius: 12px;
+            padding: 35px;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.9);
+        }
+
+        .close-modal-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 32px;
+            color: var(--text-muted);
+            cursor: pointer;
+        }
+
+        .close-modal-btn:hover {
+            color: var(--accent-gold);
+        }
+
+        .detail-header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border-dark);
+            padding-bottom: 20px;
+        }
+
+        .detail-brand-m {
+            font-family: 'Cinzel', serif;
+            font-size: 36px;
+            color: var(--accent-gold);
+        }
+
+        .detail-brand-name {
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            letter-spacing: 4px;
+            color: var(--accent-gold);
+        }
+
+        .detail-title {
+            font-family: 'Cinzel', serif;
+            font-size: 24px;
+            color: var(--text-light);
+            margin-top: 15px;
+        }
+
+        .collage-section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 13px;
+            letter-spacing: 3px;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .angles-collage {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .angle-card {
+            background-color: #16161A;
+            border: 1px solid var(--border-dark);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            transition: border-color 0.3s;
+        }
+
+        .angle-card:hover {
+            border-color: var(--accent-gold);
+        }
+
+        .angle-img-box {
+            width: 100%;
+            height: 170px;
+            background: radial-gradient(circle, #25252B 0%, #101013 100%);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #3F3F46;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .angle-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .angle-tag {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent-gold);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .specs-box {
+            background-color: #141418;
+            border-left: 4px solid var(--accent-gold);
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+        }
+
+        .specs-grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .spec-unit {
+            font-size: 12px;
+        }
+
+        .spec-key {
+            color: var(--text-muted);
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            font-size: 10px;
+            letter-spacing: 1px;
+        }
+
+        .spec-val {
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .whatsapp-cta {
+            display: block;
+            width: 100%;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: #FFF;
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: var(--text-muted);
+            font-size: 12px;
+            border-top: 1px solid var(--border-dark);
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- PORTADA DEL CATÁLOGO CON ANIMACIÓN SLIDE UP -->
+        <div class="spread-title">PORTADA DEL CATÁLOGO</div>
+        <div class="cover-page animate-slide-up">
+            <div class="brand-logo-m animate-logo-slide">M</div>
+            <div class="brand-name animate-logo-slide" style="animation-delay: 0.4s;">MR ELEGANCE</div>
+            
+            <div class="cover-hero-image-placeholder">
+                <img src="img/49317.webp" alt="Invicta Destacado" style="max-height: 220px; object-fit: contain;">
+            </div>
+
+            <div class="catalog-cover-title">COLECCIÓN EXCLUSIVA 2026</div>
+            <div class="catalog-cover-subtitle">LA DISTINCIÓN DEL TIEMPO, LA ELEGANCIA DEL ESTILO.</div>
+        </div>
+
+        <!-- SPREAD 1: RELOJES AUTOMÁTICOS (EXCLUSIVO AUTOMÁTICOS) -->
+        <div class="spread-title">PÁGINAS 02 - 03 (RELOJES AUTOMÁTICOS)</div>
+        <div class="spread-container">
+            <div class="page-left">
+                <div>
+                    <div style="font-family: 'Cinzel', serif; font-size: 12px; color: var(--accent-gold); letter-spacing: 3px; margin-bottom: 5px;">MR ELEGANCE</div>
+                    <div class="editorial-header">EL LATIDO MECÁNICO</div>
+                    <div class="editorial-text">
+                        La maestría de la alta relojería tradicional sin baterías. Impulsados por el movimiento natural de tu muñeca, los relojes automáticos representan la auténtica ingeniería viva en constante evolución.
+                    </div>
+                </div>
+                <div class="lifestyle-image-placeholder">
+                    <span>[ ESPACIO FOTO EDITORIAL / MOVIMIENTO AUTOMÁTICO ]</span>
+                </div>
+                <div style="font-size: 10px; color: var(--text-muted); text-align: right; margin-top: 10px;">Página 02</div>
+            </div>
+
+            <div class="page-right">
+                <div>
+                    <div class="grid-header">
+                        <div class="grid-header-title">COLECCIÓN AUTOMÁTICOS</div>
+                        <div style="font-size: 10px; color: #71717A; font-weight: 600;">SECCIÓN 0</div>
+                    </div>
+
+                    <div class="grid-products-6">
+                        <div class="product-item" onclick="openDetailModal('49317')">
+                            <div class="product-img-box"><img src="img/49317.webp" alt="49317"></div>
+                            <div class="product-item-name">Pro Diver Auto</div>
+                            <div class="product-item-ref">Ref. 49317</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                        <div class="product-item" onclick="openDetailModal('43979')">
+                            <div class="product-img-box"><img src="img/43979.webp" alt="43979"></div>
+                            <div class="product-item-name">Pro Diver Auto</div>
+                            <div class="product-item-ref">Ref. 43979</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                        <div class="product-item" onclick="openDetailModal('46678')">
+                            <div class="product-img-box"><img src="img/46678.webp" alt="46678"></div>
+                            <div class="product-item-name">Skull Antique</div>
+                            <div class="product-item-ref">Ref. 46678</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                        <div class="product-item" onclick="openDetailModal('43983')">
+                            <div class="product-img-box"><img src="img/43983.webp" alt="43983"></div>
+                            <div class="product-item-name">Sport Red/Black</div>
+                            <div class="product-item-ref">Ref. 43983</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                        <div class="product-item" onclick="openDetailModal('auto_02')">
+                            <div class="product-img-box"><img src="img/auto_02.webp" alt="Skeleton Master"></div>
+                            <div class="product-item-name">Skeleton Master</div>
+                            <div class="product-item-ref">Ref. AUTO-02</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="font-size: 10px; color: #71717A; text-align: right; margin-top: 15px;">Página 03</div>
+            </div>
+        </div>
+
+        <!-- SPREAD 2: PRO DIVER PARTE 1 -->
+        <div class="spread-title">PÁGINAS 04 - 05 (PRO DIVER - PARTE 1)</div>
+        <div class="spread-container">
+            <div class="page-left">
+                <div>
+                    <div style="font-family: 'Cinzel', serif; font-size: 12px; color: var(--accent-gold); letter-spacing: 3px; margin-bottom: 5px;">MR ELEGANCE</div>
+                    <div class="editorial-header">EXCELENCIA EN CADA INMERSIÓN</div>
+                    <div class="editorial-text">
+                        La línea Pro Diver de Invicta combina un rendimiento robusto con la elegancia atemporal. Diseñados para dominar cualquier profundidad con distinción absoluta.
+                    </div>
+                </div>
+                <div class="lifestyle-image-placeholder">
+                    <span>[ ESPACIO FOTO EDITORIAL / LIFESTYLE ]</span>
+                </div>
+                <div style="font-size: 10px; color: var(--text-muted); text-align: right; margin-top: 10px;">Página 04</div>
+            </div>
+
+            <div class="page-right">
+                <div>
+                    <div class="grid-header">
+                        <div class="grid-header-title">PRO DIVER (I)</div>
+                        <div style="font-size: 10px; color: #71717A; font-weight: 600;">SECCIÓN 1</div>
+                    </div>
+
+                    <div class="grid-products-6">
+                        <div class="product-item" onclick="openDetailModal('29948')">
+                            <div class="product-img-box"><img src="img/29948.webp" alt="29948"></div>
+                            <div class="product-item-name">Pro Diver</div>
+                            <div class="product-item-ref">Ref. 29948</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                        <div class="product-item" onclick="openDetailModal('47354')">
+                            <div class="product-img-box"><img src="img/47354.webp" alt="47354"></div>
+                            <div class="product-item-name">Pro Diver</div>
+                            <div class="product-item-ref">Ref. 47354</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                        <div class="product-item" onclick="openDetailModal('50587')">
+                            <div class="product-img-box"><img src="img/50587.webp" alt="50587"></div>
+                            <div class="product-item-name">Pro Diver</div>
+                            <div class="product-item-ref">Ref. 50587</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                        <div class="product-item" onclick="openDetailModal('34103')">
+                            <div class="product-img-box"><img src="img/34103.webp" alt="34103"></div>
+                            <div class="product-item-name">Pro Diver</div>
+                            <div class="product-item-ref">Ref. 34103</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                        <div class="product-item" onclick="openDetailModal('44715')">
+                            <div class="product-img-box"><img src="img/44715.webp" alt="44715"></div>
+                            <div class="product-item-name">Pro Diver</div>
+                            <div class="product-item-ref">Ref. 44715</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                        <div class="product-item" onclick="openDetailModal('37230')">
+                            <div class="product-img-box"><img src="img/37230.webp" alt="37230"></div>
+                            <div class="product-item-name">Scuba Grand</div>
+                            <div class="product-item-ref">Ref. 37230</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="font-size: 10px; color: #71717A; text-align: right; margin-top: 15px;">Página 05</div>
+            </div>
+        </div>
+
+        <!-- SPREAD 3: PRO DIVER PARTE 2 (INCLUYE MLB YANKEES) -->
+        <div class="spread-title">PÁGINAS 06 - 07 (PRO DIVER - PARTE 2 & EDICIONES ESPECIALES)</div>
+        <div class="spread-container">
+            <div class="page-left">
+                <div>
+                    <div style="font-family: 'Cinzel', serif; font-size: 12px; color: var(--accent-gold); letter-spacing: 3px; margin-bottom: 5px;">MR ELEGANCE</div>
+                    <div class="editorial-header">PRECISIÓN Y CARÁCTER</div>
+                    <div class="editorial-text">
+                        Diseños bitono, biseles deportivos, acabados de alta gama y ediciones especiales de colección pensadas para destacar en cualquier ocasión formal o casual.
+                    </div>
+                </div>
+                <div class="lifestyle-image-placeholder">
+                    <span>[ ESPACIO DETALLE / ACCESORIOS ]</span>
+                </div>
+                <div style="font-size: 10px; color: var(--text-muted); text-align: right; margin-top: 10px;">Página 06</div>
+            </div>
+
+            <div class="page-right">
+                <div>
+                    <div class="grid-header">
+                        <div class="grid-header-title">PRO DIVER & EDICIONES ESPECIALES</div>
+                        <div style="font-size: 10px; color: #71717A; font-weight: 600;">SECCIÓN 2</div>
+                    </div>
+
+                    <div class="grid-products-6">
+                        <div class="product-item" onclick="openDetailModal('49697')">
+                            <div class="product-img-box"><img src="img/49697.webp" alt="49697"></div>
+                            <div class="product-item-name">Pro Diver</div>
+                            <div class="product-item-ref">Ref. 49697</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                        <div class="product-item" onclick="openDetailModal('44714')">
+                            <div class="product-img-box"><img src="img/44714.webp" alt="44714"></div>
+                            <div class="product-item-name">Pro Diver</div>
+                            <div class="product-item-ref">Ref. 44714</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                        <div class="product-item" onclick="openDetailModal('50829')">
+                            <div class="product-img-box"><img src="img/50829.webp" alt="50829"></div>
+                            <div class="product-item-name">Pro Diver</div>
+                            <div class="product-item-ref">Ref. 50829</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                        <div class="product-item" onclick="openDetailModal('48566')">
+                            <div class="product-img-box"><img src="img/48566.webp" alt="48566"></div>
+                            <div class="product-item-name">Pro Diver</div>
+                            <div class="product-item-ref">Ref. 48566</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                        <div class="product-item" onclick="openDetailModal('40191')">
+                            <div class="product-img-box"><img src="img/40191.webp" alt="40191"></div>
+                            <div class="product-item-name">Scuba Grand</div>
+                            <div class="product-item-ref">Ref. 40191</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                        <div class="product-item" onclick="openDetailModal('30622')">
+                            <div class="product-img-box"><img src="img/30622.webp" alt="30622"></div>
+                            <div class="product-item-name">Heritage</div>
+                            <div class="product-item-ref">Ref. 30622</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                        <div class="product-item" onclick="openDetailModal('49858')">
+                            <div class="product-img-box"><img src="img/49858.webp" alt="49858"></div>
+                            <div class="product-item-name">MLB Yankees</div>
+                            <div class="product-item-ref">Ref. 49858</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="font-size: 10px; color: #71717A; text-align: right; margin-top: 15px;">Página 07</div>
+            </div>
+        </div>
+
+        <!-- SPREAD 4: COLECCIÓN SPEEDWAY -->
+        <div class="spread-title">PÁGINAS 08 - 09 (COLECCIÓN SPEEDWAY)</div>
+        <div class="spread-container">
+            <div class="page-left">
+                <div>
+                    <div style="font-family: 'Cinzel', serif; font-size: 12px; color: var(--accent-gold); letter-spacing: 3px; margin-bottom: 5px;">MR ELEGANCE</div>
+                    <div class="editorial-header">VELOCIDAD Y PRECISIÓN</div>
+                    <div class="editorial-text">
+                        La colección Speedway evoca el espíritu del automovilismo clásico de alta competición. Diseños dinámicos con subesferas de cronógrafo y sofisticación absoluta.
+                    </div>
+                </div>
+                <div class="lifestyle-image-placeholder">
+                    <span>[ ESPACIO EDITORIAL SPEEDWAY ]</span>
+                </div>
+                <div style="font-size: 10px; color: var(--text-muted); text-align: right; margin-top: 10px;">Página 08</div>
+            </div>
+
+            <div class="page-right">
+                <div>
+                    <div class="grid-header">
+                        <div class="grid-header-title">SPEEDWAY COLLECTION</div>
+                        <div style="font-size: 10px; color: #71717A; font-weight: 600;">SECCIÓN 3</div>
+                    </div>
+
+                    <div class="grid-products-6">
+                        <div class="product-item" onclick="openDetailModal('69485')">
+                            <div class="product-img-box"><img src="img/69485.webp" alt="69485"></div>
+                            <div class="product-item-name">Speedway Rim</div>
+                            <div class="product-item-ref">Ref. 69485</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                        <div class="product-item" onclick="openDetailModal('49909')">
+                            <div class="product-img-box"><img src="img/49909.webp" alt="49909"></div>
+                            <div class="product-item-name">Speedway Crono</div>
+                            <div class="product-item-ref">Ref. 49909</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                        <div class="product-item" onclick="openDetailModal('26111')">
+                            <div class="product-img-box"><img src="img/26111.webp" alt="26111"></div>
+                            <div class="product-item-name">Speedway Gunmetal</div>
+                            <div class="product-item-ref">Ref. 26111</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                        <div class="product-item" onclick="openDetailModal('50434')">
+                            <div class="product-img-box"><img src="img/50434.webp" alt="50434"></div>
+                            <div class="product-item-name">Speedway Bronze</div>
+                            <div class="product-item-ref">Ref. 50434</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                        <div class="product-item" onclick="openDetailModal('50865')">
+                            <div class="product-img-box"><img src="img/50865.webp" alt="50865"></div>
+                            <div class="product-item-name">Speedway Classic</div>
+                            <div class="product-item-ref">Ref. 50865</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="font-size: 10px; color: #71717A; text-align: right; margin-top: 15px;">Página 09</div>
+            </div>
+        </div>
+
+        <!-- SPREAD 5: OTRAS COLECCIONES EXCLUSIVAS (INCLUYE OBJET D' ART) -->
+        <div class="spread-title">PÁGINAS 10 - 11 (SPECIALTY & OBJET D' ART)</div>
+        <div class="spread-container">
+            <div class="page-left">
+                <div>
+                    <div style="font-family: 'Cinzel', serif; font-size: 12px; color: var(--accent-gold); letter-spacing: 3px; margin-bottom: 5px;">MR ELEGANCE</div>
+                    <div class="editorial-header">VERSATILIDAD Y ESTILO ÚNICO</div>
+                    <div class="editorial-text">
+                        Una selección de piezas destacadas de las colecciones Specialty, Objet D' Art y líneas clásicas. Diseñadas para quienes buscan distinción en cada detalle diario.
+                    </div>
+                </div>
+                <div class="lifestyle-image-placeholder">
+                    <span>[ ESPACIO EDITORIAL SPECIALTY ]</span>
+                </div>
+                <div style="font-size: 10px; color: var(--text-muted); text-align: right; margin-top: 10px;">Página 10</div>
+            </div>
+
+            <div class="page-right">
+                <div>
+                    <div class="grid-header">
+                        <div class="grid-header-title">SPECIALTY & OBJET D' ART</div>
+                        <div style="font-size: 10px; color: #71717A; font-weight: 600;">SECCIÓN 4</div>
+                    </div>
+
+                    <div class="grid-products-6">
+                        <div class="product-item" onclick="openDetailModal('69117')">
+                            <div class="product-img-box"><img src="img/69117.webp" alt="69117"></div>
+                            <div class="product-item-name">Objet D' Art</div>
+                            <div class="product-item-ref">Ref. 69117</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                        <div class="product-item" onclick="openDetailModal('47429')">
+                            <div class="product-img-box"><img src="img/47429.webp" alt="47429"></div>
+                            <div class="product-item-name">Specialty Gold</div>
+                            <div class="product-item-ref">Ref. 47429</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                        <div class="product-item" onclick="openDetailModal('47650')">
+                            <div class="product-img-box"><img src="img/47650.webp" alt="47650"></div>
+                            <div class="product-item-name">Ocean Voyage</div>
+                            <div class="product-item-ref">Ref. 47650</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                        <div class="product-item" onclick="openDetailModal('50185')">
+                            <div class="product-img-box"><img src="img/50185.webp" alt="50185"></div>
+                            <div class="product-item-name">Specialty Crystal</div>
+                            <div class="product-item-ref">Ref. 50185</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                        <div class="product-item" onclick="openDetailModal('50146')">
+                            <div class="product-img-box"><img src="img/50146.webp" alt="50146"></div>
+                            <div class="product-item-name">Sea Vulture</div>
+                            <div class="product-item-ref">Ref. 50146</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                        <div class="product-item" onclick="openDetailModal('48180')">
+                            <div class="product-img-box"><img src="img/48180.webp" alt="48180"></div>
+                            <div class="product-item-name">Pro Diver Gold</div>
+                            <div class="product-item-ref">Ref. 48180</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                        <div class="product-item" onclick="openDetailModal('47515')">
+                            <div class="product-img-box"><img src="img/47515.webp" alt="47515"></div>
+                            <div class="product-item-name">TI-22 Titanium</div>
+                            <div class="product-item-ref">Ref. 47515</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                        <div class="product-item" onclick="openDetailModal('15258')">
+                            <div class="product-img-box"><img src="img/15258.webp" alt="15258"></div>
+                            <div class="product-item-name">I-Force Casual</div>
+                            <div class="product-item-ref">Ref. 15258</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                        <div class="product-item" onclick="openDetailModal('47548')">
+                            <div class="product-img-box"><img src="img/47548.webp" alt="47548"></div>
+                            <div class="product-item-name">Racing Blue</div>
+                            <div class="product-item-ref">Ref. 47548</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="font-size: 10px; color: #71717A; text-align: right; margin-top: 15px;">Página 11</div>
+            </div>
+        </div>
+
+        <!-- SPREAD 6: SECCIÓN - CORREA DE CUERO & DISEÑOS ESPECIALES -->
+        <div class="spread-title">PÁGINAS 12 - 13 (CORREA DE CUERO & DISEÑOS ESPECIALES)</div>
+        <div class="spread-container">
+            <div class="page-left">
+                <div>
+                    <div style="font-family: 'Cinzel', serif; font-size: 12px; color: var(--accent-gold); letter-spacing: 3px; margin-bottom: 5px;">MR ELEGANCE</div>
+                    <div class="editorial-header">TRADICIÓN EN CUERO & VANGUARDIA</div>
+                    <div class="editorial-text">
+                        Piezas exclusivas con correas de genuino cuero y estructuras de diseño especial. La fusión perfecta entre el confort clásico y la osadía contemporánea para un estilo formal incomparable.
+                    </div>
+                </div>
+                <div class="lifestyle-image-placeholder">
+                    <span>[ ESPACIO EDITORIAL CUERO & DISEÑO ]</span>
+                </div>
+                <div style="font-size: 10px; color: var(--text-muted); text-align: right; margin-top: 10px;">Página 12</div>
+            </div>
+
+            <div class="page-right">
+                <div>
+                    <div class="grid-header">
+                        <div class="grid-header-title">CUERO & DISEÑOS ESPECIALES</div>
+                        <div style="font-size: 10px; color: #71717A; font-weight: 600;">SECCIÓN 5</div>
+                    </div>
+
+                    <div class="grid-products-6">
+                        <div class="product-item" onclick="openDetailModal('50474')">
+                            <div class="product-img-box"><img src="img/50474.webp" alt="50474"></div>
+                            <div class="product-item-name">Celestial</div>
+                            <div class="product-item-ref">Ref. 50474</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                        <div class="product-item" onclick="openDetailModal('46857')">
+                            <div class="product-img-box"><img src="img/46857.webp" alt="46857"></div>
+                            <div class="product-item-name">Vintage</div>
+                            <div class="product-item-ref">Ref. 46857</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                        <div class="product-item" onclick="openDetailModal('69649')">
+                            <div class="product-img-box"><img src="img/69649.webp" alt="69649"></div>
+                            <div class="product-item-name">Invicta Racing</div>
+                            <div class="product-item-ref">Ref. 69649</div>
+                            <div class="click-badge">Ver Ángulos</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="font-size: 10px; color: #71717A; text-align: right; margin-top: 15px;">Página 13</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- MODAL DETALLE 3 ÁNGULOS -->
+    <div id="detailModal" class="modal-overlay">
+        <div class="detail-card-container">
+            <span class="close-modal-btn" onclick="closeDetailModal()">&times;</span>
+            
+            <div class="detail-header">
+                <div class="detail-brand-m">M</div>
+                <div class="detail-brand-name">MR ELEGANCE</div>
+                <div id="modalTitle" class="detail-title">Invicta Model</div>
+            </div>
+
+            <div class="collage-section-title">VISTA MULTI-ÁNGULO DEL PRODUCTO (3 PERSPECTIVAS)</div>
+            
+            <div class="angles-collage">
+                <div class="angle-card">
+                    <div class="angle-img-box">
+                        <img id="imgFrontal" src="" alt="Vista Frontal">
+                    </div>
+                    <div class="angle-tag">1. Vista Frontal</div>
+                </div>
+
+                <div class="angle-card">
+                    <div class="angle-img-box">
+                        <img id="imgPerfil" src="" alt="Vista Perfil">
+                    </div>
+                    <div class="angle-tag">2. Vista Perfil</div>
+                </div>
+
+                <div class="angle-card">
+                    <div class="angle-img-box">
+                        <img id="imgTapa" src="" alt="Tapa Trasera">
+                    </div>
+                    <div class="angle-tag">3. Tapa / Detalle</div>
+                </div>
+            </div>
+
+            <div class="specs-box">
+                <div style="font-family: 'Cinzel', serif; font-size: 12px; color: var(--accent-gold); margin-bottom: 12px; letter-spacing: 2px;">ESPECIFICACIONES TÉCNICAS OFICIALES</div>
+                <div class="specs-grid-2">
+                    <div class="spec-unit">
+                        <div class="spec-key">Referencia / Modelo</div>
+                        <div class="spec-val" id="specRef">-</div>
+                    </div>
+                    <div class="spec-unit">
+                        <div class="spec-key">Diámetro de Caja</div>
+                        <div class="spec-val" id="specCaja">-</div>
+                    </div>
+                    <div class="spec-unit">
+                        <div class="spec-key">Material</div>
+                        <div class="spec-val" id="specMaterial">-</div>
+                    </div>
+                    <div class="spec-unit">
+                        <div class="spec-key">Resistencia al Agua</div>
+                        <div class="spec-val" id="specResistencia">-</div>
+                    </div>
+                </div>
+            </div>
+
+            <a id="whatsappLink" href="#" target="_blank" class="whatsapp-cta">
+                💬 Solicitar Pedido por WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 MR ELEGANCE. Catálogo Editorial Interactivo. Todos los derechos reservados.
+    </footer>
+
+    <script>
+        const watchesData = {
+            /* RELOJES AUTOMÁTICOS (SECCIÓN 0) */
+            '49317': { name: 'Invicta Pro Diver Automático Ref. 49317', caja: '40 mm', material: 'Acero Inoxidable Bicolor (Oro/Acero)', resistencia: '200 Metros' },
+            '43979': { name: 'Invicta Pro Diver Automático Ref. 43979', caja: '42 mm', material: 'Acero Inoxidable Bicolor (Bisel Negro)', resistencia: '200 Metros' },
+            '46678': { name: 'Invicta Pro Diver Skull Edición Especial Ref. 46678', caja: '43 mm', material: 'Acero Inoxidable Tono Oro Antiguo', resistencia: '200 Metros' },
+            '43983': { name: 'Invicta Pro Diver Automático Deportivo Ref. 43983', caja: '42 mm', material: 'Acero Inoxidable (Bisel Rojo/Negro)', resistencia: '200 Metros' },
+            'auto_02': { name: 'Invicta Skeleton Master Automático Ref. AUTO-02', caja: '45 mm', material: 'Acero Inoxidable & Esfera Esqueleto', resistencia: '100 Metros' },
+
+            /* RESTO DE CATÁLOGO */
+            '29948': { name: 'Invicta Pro Diver Ref. 29948', caja: '43 mm', material: 'Acero Inoxidable & Oro', resistencia: '200 Metros' },
+            '47354': { name: 'Invicta Pro Diver Ref. 47354', caja: '40 mm', material: 'Acero Inoxidable', resistencia: '200 Metros' },
+            '50587': { name: 'Invicta Pro Diver Ref. 50587', caja: '40 mm', material: 'Acero Inoxidable (Esfera Plateada)', resistencia: '200 Metros' },
+            '34103': { name: 'Invicta Pro Diver Ref. 34103', caja: '40 mm', material: 'Acero Inoxidable Completo', resistencia: '200 Metros' },
+            '44715': { name: 'Invicta Pro Diver Ref. 44715', caja: '43 mm', material: 'Acero con Bisel Azul Claro', resistencia: '200 Metros' },
+            '37230': { name: 'Invicta Pro Diver Scuba Ref. 37230', caja: '48 mm', material: 'Cronógrafo / Silicona & Acero', resistencia: '100 Metros' },
+            '49697': { name: 'Invicta Pro Diver Ref. 49697', caja: '43 mm', material: 'Bitono Acero & Oro (Esfera Dorada)', resistencia: '200 Metros' },
+            '44714': { name: 'Invicta Pro Diver Ref. 44714', caja: '43 mm', material: 'Acero con Bisel Tricolor', resistencia: '200 Metros' },
+            '50829': { name: 'Invicta Pro Diver Ref. 50829', caja: '42 mm', material: 'Acero Inoxidable Tradicional', resistencia: '200 Metros' },
+            '48566': { name: 'Invicta Pro Diver Ref. 48566', caja: '40 mm', material: 'Acero (Esfera Camuflaje Carbón)', resistencia: '200 Metros' },
+            '40191': { name: 'Invicta Pro Diver Scuba Ref. 40191', caja: '48 mm', material: 'Cronógrafo Acero/Oro (Esfera Verde)', resistencia: '100 Metros' },
+            '30622': { name: 'Invicta Pro Diver Heritage Ref. 30622', caja: '43 mm', material: 'Baño de Oro Completo / Root Beer', resistencia: '200 Metros' },
+            '49858': { name: 'Invicta Pro Diver MLB NY Yankees Ref. 49858', caja: '43 mm', material: 'Edición Especial Dorado / MLB', resistencia: '100 Metros' },
+            
+            '69485': { name: 'Invicta Speedway Rim Ref. 69485', caja: '42 mm', material: 'Acero Inoxidable (Esfera Plateada)', resistencia: 'Estándar' },
+            '49909': { name: 'Invicta Speedway Cronógrafo Ref. 49909', caja: '39.5 mm', material: 'Acero Inoxidable Deportivo', resistencia: '200 Metros' },
+            '26111': { name: 'Invicta Speedway Gunmetal Ref. 26111', caja: '39.5 mm', material: 'Acero Inoxidable Tono Gunmetal', resistencia: '200 Metros' },
+            '50434': { name: 'Invicta Speedway Bronze Ref. 50434', caja: '45 mm', material: 'Acero Inoxidable Color Cobre/Bronce', resistencia: '50 Metros' },
+            '50865': { name: 'Invicta Speedway Classic Ref. 50865', caja: '43 mm', material: 'Acero Inoxidable y Metal Plateado', resistencia: '50 Metros' },
+
+            '69117': { name: 'Invicta Objet D Art Ref. 69117', caja: '40 mm', material: 'Acero Inoxidable / Estilo Clásico', resistencia: '30 Metros' },
+            '47429': { name: 'Invicta Specialty Ref. 47429', caja: '43 mm', material: 'Acero Inoxidable con Tono Oro (Esfera Negra)', resistencia: '50 Metros' },
+            '47650': { name: 'Invicta Ocean Voyage Ref. 47650', caja: '39.5 mm', material: 'Acero Inoxidable Bitono (Esfera Azul)', resistencia: '200 Metros' },
+            '50185': { name: 'Invicta Specialty Ref. 50185', caja: '42 mm', material: 'Acero y Tono Dorado con Cristales (Esfera Carbón)', resistencia: '50 Metros' },
+            '50146': { name: 'Invicta Sea Vulture Ref. 50146', caja: '44 mm', material: 'Acero Inoxidable (Esfera Plateada de Latón)', resistencia: 'Estándar' },
+            '48180': { name: 'Invicta Pro Diver Gold Ref. 48180', caja: '48 mm', material: 'Acero con Baño de Color Oro', resistencia: 'Estándar' },
+            '47515': { name: 'Invicta TI-22 Titanium Ref. 47515', caja: '43 mm', material: 'Aleación Ligera / Titanio', resistencia: '50 Metros' },
+            '15258': { name: 'Invicta I-Force Casual Ref. 15258', caja: '44 mm', material: 'Acero Inoxidable (Esfera Negra Clásica)', resistencia: '50 Metros' },
+            '47548': { name: 'Invicta Racing Ref. 47548', caja: 'Estándar', material: 'Acero Inoxidable con Esfera Azul', resistencia: 'Estándar' },
+
+            '50474': { name: 'Invicta Celestial Ref. 50474', caja: 'Estándar', material: 'Correa de Cuero / Diseño Especial', resistencia: 'Estándar' },
+            '46857': { name: 'Invicta Vintage Ref. 46857', caja: '30 mm', material: 'Acero Inoxidable y Correa de Cuero', resistencia: '30 Metros' },
+            '69649': { name: 'Invicta Racing Ref. 69649', caja: '43.5 mm', material: 'Acrílico y Correa de Silicona', resistencia: '50 Metros' }
+        };
+
+        function openDetailModal(ref) {
+            const watch = watchesData[ref];
+            if (!watch) return;
+
+            document.getElementById('modalTitle').innerText = watch.name;
+            document.getElementById('specRef').innerText = 'Ref. ' + ref;
+            document.getElementById('specCaja').innerText = watch.caja;
+            document.getElementById('specMaterial').innerText = watch.material;
+            document.getElementById('specResistencia').innerText = watch.resistencia;
+
+            const imgPath = `img/${ref}.webp`;
+            document.getElementById('imgFrontal').src = imgPath;
+            document.getElementById('imgPerfil').src = `img/perfil.webp`;
+            document.getElementById('imgTapa').src = `img/tapa.webp`;
+
+            const mensaje = encodeURIComponent(`Hola MR ELEGANCE, estoy interesado en el modelo ${watch.name} (Ref. ${ref}).`);
+            document.getElementById('whatsappLink').href = `https://wa.me/50588888888?text=${mensaje}`;
+
+            document.getElementById('detailModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDetailModal() {
+            document.getElementById('detailModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+</body>
+</html>
